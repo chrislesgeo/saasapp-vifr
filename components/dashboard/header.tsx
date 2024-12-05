@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import { signOut } from "@/lib/auth";
 import { useRouter } from "next/navigation";
