@@ -36,7 +36,7 @@ A simple yet effective webapp that integrates the **Gemini API** to fetch prompt
 
 4. To start the app in development mode:
    ```bash
-   npm start
+   npm run dev
    ```
 
 5. Make sure to configure the **Gemini API** and **Supabase** credentials for full functionality.
