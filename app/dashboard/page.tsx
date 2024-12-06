@@ -1,31 +1,15 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { getSession } from "@/lib/auth";
 import { ChatContainer } from "@/components/chat/ChatContainer";
 import { PromptForm } from "@/components/dashboard/prompt-form";
 import { PromptHistory } from "@/components/dashboard/prompt-history";
 import { DashboardHeader } from "@/components/dashboard/header";
+import { redirect } from 'next/navigation';
 
-export default function DashboardPage() {
-  const router = useRouter();
-  const [isLoading, setIsLoading] = useState(true);
+export default async function DashboardPage() {
+  const { session, error } = await getSession();
 
-  useEffect(() => {
-    const checkSession = async () => {
-      const { session, error } = await getSession();
-      if (error || !session) {
-        router.push("/login");
-      } else {
-        setIsLoading(false);
-      }
-    };
-    checkSession();
-  }, [router]);
-
-  if (isLoading) {
-    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+  if (error || !session) {
+    redirect("/login");
   }
 
   return (
@@ -40,3 +24,4 @@ export default function DashboardPage() {
     </div>
   );
 }
+
