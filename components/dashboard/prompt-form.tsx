@@ -7,6 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 import { createPrompt } from "@/lib/prompts";
 import { Send, Copy, Check } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
+import Markdown from "react-markdown";
 
 export function PromptForm() {
   const [prompt, setPrompt] = useState("");
@@ -62,12 +63,12 @@ export function PromptForm() {
     <div className="space-y-6">
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="space-y-2">
-          <h2 className="text-lg font-semibold">Create New Prompt</h2>
+          <h2 className="text-lg font-semibold text-foreground">Create New Prompt</h2>
           <Textarea
             placeholder="Enter your prompt here..."
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
-            className="min-h-[100px]"
+            className="min-h-[100px] bg-background text-foreground"
             required
           />
         </div>
@@ -78,10 +79,10 @@ export function PromptForm() {
       </form>
 
       {response && (
-        <Card className="mt-6">
+        <Card className="mt-6 bg-card text-card-foreground">
           <CardContent className="pt-6">
             <div className="flex justify-between items-center mb-2">
-              <h3 className="text-lg font-semibold">API Response:</h3>
+              <h3 className="text-lg font-semibold text-foreground">API Response:</h3>
               <Button
                 variant="outline"
                 size="sm"
@@ -97,7 +98,7 @@ export function PromptForm() {
               </Button>
             </div>
             <div className="bg-muted p-4 rounded-md">
-              <pre className="whitespace-pre-wrap">{response}</pre>
+              <pre className="whitespace-pre-wrap"><Markdown>{response}</Markdown></pre>
             </div>
           </CardContent>
         </Card>
