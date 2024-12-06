@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getSession } from "@/lib/auth";
+import { ChatContainer } from "@/components/chat/ChatContainer";
 import { PromptForm } from "@/components/dashboard/prompt-form";
 import { PromptHistory } from "@/components/dashboard/prompt-history";
 import { DashboardHeader } from "@/components/dashboard/header";

@@ -55,7 +55,7 @@ export function PromptHistory() {
         ) : (
           <div className="space-y-8">
             {history.map((item) => (
-              <div key={item.id} className="space-y-2">
+              <div key={item.created_at} className="space-y-2">
                 <div className="flex justify-between items-start">
                   <p className="font-medium">Prompt:</p>
                   <span className="text-sm text-gray-500">
