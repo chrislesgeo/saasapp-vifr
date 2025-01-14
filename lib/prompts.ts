@@ -2,19 +2,20 @@ import { supabase } from './supabase';
 
 export async function createPrompt(promptText: string) {
   try {
-    const response = await fetch('/api/genai', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ prompt: promptText }),
-    });
+    // const response = await fetch('/api/genai', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({ prompt: promptText }),
+    // });
 
-    if (!response.ok) {
-      throw new Error('Failed to generate content');
-    }
-
-    const data = await response.json();
+    // if (!response.ok) {
+    //   throw new Error('Failed to generate content');
+    // }
+    
+//    const data = await response.json();
+    const data = {text: "This is an Mock API response"}
     console.log(data.text)
     const { data: { user }, error: userError } = await supabase.auth.getUser();
     if (userError) {
