@@ -15,7 +15,7 @@ export async function createPrompt(promptText: string) {
     // }
     
 //    const data = await response.json();
-    const data = {text: "This is an Mock API response"}
+    const data = {text: "This is a Mock API response"}
     console.log(data.text)
     const { data: { user }, error: userError } = await supabase.auth.getUser();
     if (userError) {
